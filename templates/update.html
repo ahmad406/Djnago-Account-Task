@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+Update User
+{% endblock %}
+{% block body %}
+<div class="alert alert-info text-center text-black" role="alert">
+  User Update
+</div>
+<form method="POST" novalidate>
+  {% csrf_token %}
+  <div class="row " style="
+  margin-top: -16px;
+">>
+
+    <div class="col-6 center">
+      {% csrf_token %}
+      {% for fm in form %}
+      {{fm.label_tag}}
+
+      {{fm}} <br>
+      &nbsp;&nbsp;{{fm.errors}}
+      {% endfor %} <br>
+      <input type="submit" class="btn btn-success m-1" value="Update">
+      <a class="btn btn-info text-light" href="{% url 'profile'  %}"> Back</a>
+
+      <div class="ce" style="
+      margin: 1rem 0px 0.5rem 0rem;
+      ">
+        <p style="color: red;">Delete your account permanently</p>
+        <a class="btn btn-danger" href="{% url 'delete' user.id %}"> Delete</a>
+
+        <a href="{% url 'changepass' %}"> Change Password</a>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+
+
+
+{% endblock %}

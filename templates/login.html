@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+<style>
+  
+  .form-control {
+    width: 100%;
+}
+.login {
+  width: 8rem;
+}
+</style>
+<title>
+  {% block title %}
+  Login form
+  {% endblock %}
+</title>
+{% block body %}
+
+</div>
+
+<form method="post" >
+  {% csrf_token %}
+  <div class="card login-box">
+    <div class="card-header">
+      Login User Form
+    </div>
+    <div class="card-body  ">
+      {% for fm in form %}
+     
+      <p class="card-text  "> {{fm.label_tag}}
+
+        {{fm}}
+        &nbsp;&nbsp;{{fm.errors}}
+        {% endfor %}
+        <br>
+        <input class="btn btn-primary login"  type="submit" value="login">
+        <a  class="btn btn-info" href="{%url  'register' %}">Register Now</a>
+       
+      </p>
+
+    </div>
+
+  </div>
+
+
+</form>
+
+{% endblock %}

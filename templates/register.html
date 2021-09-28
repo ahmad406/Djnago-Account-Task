@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<title>
+  {% block title %}
+  Register form
+  {% endblock %}
+</title>
+{% block body %}
+<div class="alert alert-info text-center text-black" role="alert">
+  User Registration Form
+</div>
+
+<form method="post" enctype="multipart/form-data" novalidate>
+{% csrf_token %}
+  <div class="row m-2">
+
+      <div class="col-6 center">
+        {% for fm in form %}
+        {{fm.label_tag}}
+
+        {{fm}}
+        &nbsp;&nbsp;{{fm.errors}}
+        {% endfor %}
+        {{image}}
+        <input class="btn btn-success " type="submit" value="Register" style="
+    margin: 17px -14px;
+">
+
+      </div>
+   
+  </div>
+</form>
+{% endblock %}
